@@ -36,7 +36,7 @@ const FooterCta = () => {
           <span className="text-[13px] text-white/50">•</span>
           <span className="text-[13px] text-white/50">15+ years of teaching excellence</span>
           <span className="text-[13px] text-white/50">•</span>
-          <span className="text-[13px] text-white/50">3 centers across Jaipur</span>
+          <span className="text-[13px] text-white/50">4 centers across Delhi NCR</span>
         </div>
       </div>
     </section>

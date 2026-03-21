@@ -86,7 +86,7 @@ const HeroSection = () => {
                 Book Free Counselling
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+918750581505"
                 className="inline-flex items-center gap-2 rounded-lg border border-white/25 px-6 py-3 text-[14px] font-medium text-white transition-all hover:border-white/40 hover:bg-white/5"
               >
                 <Phone className="h-4 w-4" />
