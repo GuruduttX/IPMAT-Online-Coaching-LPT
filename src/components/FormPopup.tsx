@@ -19,23 +19,18 @@ const FormPopup = () => {
   useEffect(() => {
     if (!show || !containerRef.current) return;
 
-    const div = document.createElement("div");
-    div.className = "npf_wgts";
-    div.setAttribute("data-height", "750px");
-    div.setAttribute("data-w", "2813f4ab5a613222cb968f1cee3b6603");
-    containerRef.current.innerHTML = "";
-    containerRef.current.appendChild(div);
+    // Insert the widget div and script together
+    containerRef.current.innerHTML = `<div class="npf_wgts" data-height="750px" data-w="2813f4ab5a613222cb968f1cee3b6603"></div>`;
 
     const s = document.createElement("script");
     s.type = "text/javascript";
+    s.src = "https://widgets.in6.nopaperforms.com/emwgts.js?" + Date.now();
     s.async = true;
-    s.src = "https://widgets.in6.nopaperforms.com/emwgts.js";
-    document.body.appendChild(s);
+    containerRef.current.appendChild(s);
 
     document.body.style.overflow = "hidden";
 
     return () => {
-      try { document.body.removeChild(s); } catch {}
       document.body.style.overflow = "";
     };
   }, [show]);
@@ -60,8 +55,8 @@ const FormPopup = () => {
           <X className="h-4 w-4 text-gray-600" />
         </button>
 
-        <div className="overflow-hidden rounded-xl bg-white shadow-2xl">
-          {/* Header matching the hero form */}
+        <div className="overflow-hidden rounded-xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto">
+          {/* Header */}
           <div className="px-6 pt-6 md:px-8 md:pt-8">
             <p className="text-[12px] font-semibold uppercase tracking-widest text-[#6936F5]">
               Limited Time Offer

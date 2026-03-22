@@ -1,27 +1,21 @@
 import { Phone } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-const NpfWidget = ({ height = "750px" }: { height?: string }) => {
+const NpfWidget = ({ height = "550px" }: { height?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
-    const div = document.createElement("div");
-    div.className = "npf_wgts";
-    div.setAttribute("data-height", height);
-    div.setAttribute("data-w", "2813f4ab5a613222cb968f1cee3b6603");
-    containerRef.current.innerHTML = "";
-    containerRef.current.appendChild(div);
 
+    // Clear and insert the widget div
+    containerRef.current.innerHTML = `<div class="npf_wgts" data-height="${height}" data-w="2813f4ab5a613222cb968f1cee3b6603"></div>`;
+
+    // Load the NPF script fresh with cache-busting
     const s = document.createElement("script");
     s.type = "text/javascript";
+    s.src = "https://widgets.in6.nopaperforms.com/emwgts.js?" + Date.now();
     s.async = true;
-    s.src = "https://widgets.in6.nopaperforms.com/emwgts.js";
-    document.body.appendChild(s);
-
-    return () => {
-      try { document.body.removeChild(s); } catch {}
-    };
+    containerRef.current.appendChild(s);
   }, [height]);
 
   return <div ref={containerRef} className="npf-styled" />;
