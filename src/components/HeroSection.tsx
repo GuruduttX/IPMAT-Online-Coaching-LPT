@@ -3,19 +3,27 @@ import { useEffect, useRef } from "react";
 
 const NpfWidget = ({ height = "550px" }: { height?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const loaded = useRef(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || loaded.current) return;
+    loaded.current = true;
 
-    // Clear and insert the widget div
-    containerRef.current.innerHTML = `<div class="npf_wgts" data-height="${height}" data-w="2813f4ab5a613222cb968f1cee3b6603"></div>`;
+    // Step 1: Insert the widget div into the DOM
+    const widgetDiv = document.createElement("div");
+    widgetDiv.className = "npf_wgts";
+    widgetDiv.setAttribute("data-height", height);
+    widgetDiv.setAttribute("data-w", "2813f4ab5a613222cb968f1cee3b6603");
+    containerRef.current.appendChild(widgetDiv);
 
-    // Load the NPF script fresh with cache-busting
-    const s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "https://widgets.in6.nopaperforms.com/emwgts.js?" + Date.now();
-    s.async = true;
-    containerRef.current.appendChild(s);
+    // Step 2: Wait a tick for DOM to paint, then load the NPF script into document.body
+    setTimeout(() => {
+      const s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://widgets.in6.nopaperforms.com/emwgts.js?" + Date.now();
+      document.body.appendChild(s);
+    }, 100);
   }, [height]);
 
   return <div ref={containerRef} className="npf-styled" />;
