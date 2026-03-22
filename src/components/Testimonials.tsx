@@ -1,5 +1,3 @@
-import React from "react";
-
 const testimonials = [
   {
     quote: "LPT's guidance helped me secure my dream IIM.",
@@ -45,58 +43,54 @@ const PlayIcon = () => (
 );
 
 const Testimonials = () => (
-  <section className="py-16 md:py-24 px-5 md:px-8 bg-white">
-    <div className="mx-auto max-w-[1200px]">
-      <h2 className="mb-12 text-center text-[26px] md:text-[32px] font-bold text-[#36344D]">
+  <section className="py-16 px-4 md:px-6 bg-white">
+    <div className="mx-auto max-w-[1158px]">
+      <h2 className="mb-8 text-center text-[28px] font-bold text-foreground">
         Hear from Our IPMAT 2025 Toppers
       </h2>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {testimonials.map((t) => (
           <div
             key={t.name}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+            className="relative flex flex-col justify-between overflow-hidden rounded-2xl text-white"
             style={{
-              background: "linear-gradient(180deg, #8B1527 0%, #111111 60%)",
-              minHeight: "440px",
+              background: "linear-gradient(180deg, #AE202C 0%, #000000 40%)",
+              minHeight: 420,
             }}
           >
             {/* Student photo as background overlay at bottom */}
             <div
-              className="absolute inset-x-0 bottom-0 z-0 h-[260px] opacity-90 transition-transform duration-500 group-hover:scale-105"
+              className="absolute inset-0 z-0"
               style={{
                 backgroundImage: `url(${t.img})`,
-                backgroundPosition: "bottom center",
+                backgroundPosition: "bottom left",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
+                backgroundSize: "60% auto",
               }}
             />
 
-            {/* Gradient Overlay for Text Readability */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-            {/* Content (Top) */}
-            <div className="relative z-10 p-6 flex flex-col gap-3">
+            {/* Content */}
+            <div className="relative z-10 p-5 pb-[220px]">
               <QuoteIcon />
-              <p className="text-[16px] font-medium leading-relaxed text-white">"{t.quote}"</p>
-              <p className="text-[13px] text-white/70 font-medium">{t.name}</p>
+              <p className="mt-4 text-[17px] font-medium leading-relaxed">"{t.quote}"</p>
+              <p className="mt-2 text-sm text-white/70">{t.name}</p>
             </div>
 
-            {/* Watch Video button (Bottom) */}
-            <div className="relative z-10 mt-auto p-6 flex justify-center pb-8">
-              {t.videoId ? (
+            {/* Watch Video button at bottom */}
+            {t.videoId && (
+              <div className="relative z-10 p-5 pt-0">
                 <a
                   href={`https://www.youtube.com/watch?v=${t.videoId}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full justify-center items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-[14px] font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:border-white/30 active:scale-[0.97]"
+                  className="inline-flex items-center gap-3 rounded-full px-4 py-3 text-[15px] font-medium text-white transition-all duration-300 hover:bg-white/20 active:scale-[0.97]"
+                  style={{ backgroundColor: "rgba(183, 151, 151, 0.5)" }}
                 >
                   Watch Video
                   <PlayIcon />
                 </a>
-              ) : (
-                <div className="h-[46px]" />
-              )}
-            </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

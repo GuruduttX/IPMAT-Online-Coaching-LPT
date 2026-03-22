@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
 
 const StickyFormBar = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShow(window.scrollY > 600);
+      setShow(window.scrollY > 400);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -15,20 +15,55 @@ const StickyFormBar = () => {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200 bg-white/95 px-4 py-3 shadow-lg backdrop-blur-md lg:hidden">
-      <div className="flex items-center justify-between gap-3">
-        <div className="min-w-0">
-          <p className="truncate text-[13px] font-semibold text-[#36344D]">IPMAT 2026 — Limited Seats</p>
-          <p className="text-[11px] text-[#727586]">Register for free counselling</p>
-        </div>
+    <>
+      {/* Desktop floating buttons — right side */}
+      <div className="fixed right-5 bottom-6 z-50 hidden flex-col gap-3 lg:flex">
         <a
-          href="#register"
-          className="btn-premium shrink-0 rounded-lg bg-[#192376] px-5 py-2.5 text-[13px] font-semibold text-white transition-all active:scale-[0.97]"
+          href="https://wa.me/918750581505?text=Hi%2C%20I%20want%20to%20know%20about%20IPMAT%20coaching"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl"
+          aria-label="Chat on WhatsApp"
         >
-          Register Now
+          <MessageCircle className="h-6 w-6" />
+        </a>
+        <a
+          href="tel:+918750581505"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#192376] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl"
+          aria-label="Call us"
+        >
+          <Phone className="h-6 w-6" />
         </a>
       </div>
-    </div>
+
+      {/* Mobile bottom bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200 bg-white/95 px-3 py-2.5 shadow-lg backdrop-blur-md lg:hidden">
+        <div className="flex items-center gap-2">
+          <a
+            href="#register"
+            className="btn-premium flex-1 rounded-lg bg-[#192376] py-3 text-center text-[13px] font-bold text-white transition-all active:scale-[0.97]"
+          >
+            Register Now — Free
+          </a>
+          <a
+            href="https://wa.me/918750581505?text=Hi%2C%20I%20want%20to%20know%20about%20IPMAT%20coaching"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-lg bg-[#25D366] text-white transition-all active:scale-95"
+            aria-label="WhatsApp"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </a>
+          <a
+            href="tel:+918750581505"
+            className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-lg bg-[#6936F5] text-white transition-all active:scale-95"
+            aria-label="Call"
+          >
+            <Phone className="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </>
   );
 };
 

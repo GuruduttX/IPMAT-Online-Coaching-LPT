@@ -136,3 +136,84 @@ input:focus, select:focus, textarea:focus {
   background: #6936F5;
   border-radius: 2px;
 }
+
+/* ===== NoPaperForms Widget Overrides ===== */
+.npf-styled .npf_wgts,
+.npf-styled .npf_wgts * {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+.npf-styled input[type="text"],
+.npf-styled input[type="email"],
+.npf-styled input[type="tel"],
+.npf-styled input[type="number"],
+.npf-styled select,
+.npf-styled textarea {
+  width: 100% !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 0.5rem !important;
+  background-color: #F9FAFB !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 14px !important;
+  color: #36344D !important;
+  outline: none !important;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s !important;
+  box-shadow: none !important;
+}
+
+.npf-styled input[type="text"]:focus,
+.npf-styled input[type="email"]:focus,
+.npf-styled input[type="tel"]:focus,
+.npf-styled input[type="number"]:focus,
+.npf-styled select:focus,
+.npf-styled textarea:focus {
+  border-color: #6936F5 !important;
+  background-color: #fff !important;
+  box-shadow: 0 0 0 3px rgba(105, 54, 245, 0.1) !important;
+}
+
+.npf-styled input::placeholder,
+.npf-styled textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+.npf-styled select {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+}
+
+.npf-styled button[type="submit"],
+.npf-styled input[type="submit"],
+.npf-styled .btn,
+.npf-styled .npf_submit {
+  width: 100% !important;
+  background: #192376 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  padding: 0.875rem 1.5rem !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+
+.npf-styled button[type="submit"]:hover,
+.npf-styled input[type="submit"]:hover,
+.npf-styled .btn:hover,
+.npf-styled .npf_submit:hover {
+  background: #0f1a5c !important;
+}
+
+.npf-styled label {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #36344D !important;
+  margin-bottom: 4px !important;
+}
+
+/* Hide NPF branding */
+.npf-styled .npf_wgts > div > div:last-child a[href*="nopaperforms"] {
+  display: none !important;
+}
+

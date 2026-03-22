@@ -48,6 +48,17 @@ const WhyLptSection = () => {
             </div>
           ))}
         </div>
+
+        {/* CTA */}
+        <div className="mt-12 text-center">
+          <a
+            href="#register"
+            className="btn-premium inline-flex items-center gap-2 rounded-lg bg-[#192376] px-8 py-3.5 text-[15px] font-bold text-white shadow-lg transition-all hover:bg-[#0f1a5c] hover:shadow-xl active:scale-[0.98]"
+          >
+            Start Free IPMAT Prep →
+          </a>
+          <p className="mt-3 text-[13px] text-[#9CA3AF]">Join 5,000+ students already preparing with LPT</p>
+        </div>
       </div>
     </section>
   );

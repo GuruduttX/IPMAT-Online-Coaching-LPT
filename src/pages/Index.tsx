@@ -11,6 +11,7 @@ import CentersSection from "@/components/CentersSection";
 import FaqSection from "@/components/FaqSection";
 import FooterCta from "@/components/FooterCta";
 import StickyFormBar from "@/components/StickyFormBar";
+import FormPopup from "@/components/FormPopup";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       <FaqSection />
       <FooterCta />
       <StickyFormBar />
+      <FormPopup />
     </div>
   );
 };
