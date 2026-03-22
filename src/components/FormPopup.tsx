@@ -1,9 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+
+const NPF_WIDGET_KEY = "2813f4ab5a613222cb968f1cee3b6603";
 
 const FormPopup = () => {
   const [show, setShow] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem("lpt_popup_dismissed");
@@ -11,27 +12,11 @@ const FormPopup = () => {
 
     const timer = setTimeout(() => {
       setShow(true);
+      document.body.style.overflow = "hidden";
     }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (!show || !containerRef.current) return;
-
-    // Move the statically-loaded NPF popup form into this component
-    const npfForm = document.getElementById("npf-popup-form");
-    if (npfForm) {
-      npfForm.style.display = "block";
-      containerRef.current.appendChild(npfForm);
-    }
-
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [show]);
 
   const handleClose = () => {
     setShow(false);
@@ -40,6 +25,8 @@ const FormPopup = () => {
   };
 
   if (!show) return null;
+
+  const iframeSrc = `https://widgets.in6.nopaperforms.com/register?w=${NPF_WIDGET_KEY}&cu=${encodeURIComponent(window.location.href)}`;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
@@ -65,8 +52,16 @@ const FormPopup = () => {
             </p>
           </div>
 
-          <div className="npf-styled px-6 py-4">
-            <div ref={containerRef} />
+          <div className="px-4 py-3">
+            <iframe
+              src={iframeSrc}
+              width="100%"
+              height="550px"
+              frameBorder={0}
+              sandbox="allow-top-navigation allow-scripts allow-same-origin allow-downloads allow-forms allow-popups"
+              style={{ border: "none" }}
+              title="Registration Form"
+            />
           </div>
 
           <div className="border-t border-gray-100 bg-gray-50 px-5 py-3 text-center">

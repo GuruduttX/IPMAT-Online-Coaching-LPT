@@ -1,18 +1,25 @@
 import { Phone } from "lucide-react";
-import { useEffect, useRef } from "react";
+
+const NPF_WIDGET_KEY = "2813f4ab5a613222cb968f1cee3b6603";
+
+const NpfIframe = ({ height = "550px" }: { height?: string }) => {
+  // Build the same URL the NPF script would create, but as a direct iframe
+  const iframeSrc = `https://widgets.in6.nopaperforms.com/register?w=${NPF_WIDGET_KEY}&cu=${encodeURIComponent(window.location.href)}`;
+
+  return (
+    <iframe
+      src={iframeSrc}
+      width="100%"
+      height={height}
+      frameBorder={0}
+      sandbox="allow-top-navigation allow-scripts allow-same-origin allow-downloads allow-forms allow-popups"
+      style={{ border: "none", overflow: "hidden" }}
+      title="Registration Form"
+    />
+  );
+};
 
 const HeroSection = () => {
-  const formContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Move the statically-loaded NPF form from index.html into this component
-    const npfForm = document.getElementById("npf-hero-form");
-    if (npfForm && formContainerRef.current) {
-      npfForm.style.display = "block";
-      formContainerRef.current.appendChild(npfForm);
-    }
-  }, []);
-
   return (
     <section id="hero" className="relative overflow-hidden bg-[#192376]">
       {/* Urgency Strip */}
@@ -93,12 +100,12 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* RIGHT — Form */}
+          {/* RIGHT — Form (direct iframe, no script dependency) */}
           <div id="register" className="scroll-mt-24 lg:-mt-16">
-            <div className="rounded-xl bg-white p-5">
+            <div className="rounded-xl bg-white p-5 overflow-hidden">
               <h3 className="text-[17px] font-bold text-[#36344D]">Limited Slots!</h3>
               <p className="mb-3 text-[12px] text-[#727586]">Fill the form to register or request more details.</p>
-              <div ref={formContainerRef} className="npf-styled" />
+              <NpfIframe height="550px" />
             </div>
           </div>
         </div>
