@@ -31,16 +31,17 @@ const FormPopup = () => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
       <div className="relative w-full max-w-[440px]">
-        <button
-          onClick={handleClose}
-          className="absolute -right-2 -top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-lg transition-all hover:bg-gray-100 active:scale-95"
-          aria-label="Close popup"
-        >
-          <X className="h-4 w-4 text-gray-600" />
-        </button>
+        <div className="relative overflow-hidden rounded-xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto">
+          {/* Close button - inside the card, always visible on mobile */}
+          <button
+            onClick={handleClose}
+            className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 transition-all hover:bg-gray-200 active:scale-95"
+            aria-label="Close popup"
+          >
+            <X className="h-4 w-4 text-gray-600" />
+          </button>
 
-        <div className="overflow-hidden rounded-xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto">
-          <div className="px-6 pt-6">
+          <div className="px-6 pt-6 pr-14">
             <p className="text-[12px] font-semibold uppercase tracking-widest text-[#6936F5]">
               Limited Time Offer
             </p>
