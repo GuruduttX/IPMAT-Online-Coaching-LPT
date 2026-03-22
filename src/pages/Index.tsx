@@ -6,6 +6,7 @@ import MotivationalSection from "@/components/MotivationalSection";
 import CtaBanner from "@/components/CtaBanner";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
 import ResultsSection from "@/components/ResultsSection";
+import Testimonials from "@/components/Testimonials";
 import CentersSection from "@/components/CentersSection";
 import FaqSection from "@/components/FaqSection";
 import FooterCta from "@/components/FooterCta";
@@ -22,6 +23,7 @@ const Index = () => {
       <CtaBanner />
       <TargetAudienceSection />
       <ResultsSection />
+      <Testimonials />
       <CentersSection />
       <FaqSection />
       <FooterCta />
