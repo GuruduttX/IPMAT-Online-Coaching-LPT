@@ -4,7 +4,6 @@ import { X } from "lucide-react";
 const FormPopup = () => {
   const [show, setShow] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const loaded = useRef(false);
 
   useEffect(() => {
     const dismissed = sessionStorage.getItem("lpt_popup_dismissed");
@@ -18,24 +17,14 @@ const FormPopup = () => {
   }, []);
 
   useEffect(() => {
-    if (!show || !containerRef.current || loaded.current) return;
-    loaded.current = true;
+    if (!show || !containerRef.current) return;
 
-    // Insert the widget div
-    const widgetDiv = document.createElement("div");
-    widgetDiv.className = "npf_wgts";
-    widgetDiv.setAttribute("data-height", "550px");
-    widgetDiv.setAttribute("data-w", "2813f4ab5a613222cb968f1cee3b6603");
-    containerRef.current.appendChild(widgetDiv);
-
-    // Load script after DOM paints
-    setTimeout(() => {
-      const s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = "https://widgets.in6.nopaperforms.com/emwgts.js?" + Date.now();
-      document.body.appendChild(s);
-    }, 100);
+    // Move the statically-loaded NPF popup form into this component
+    const npfForm = document.getElementById("npf-popup-form");
+    if (npfForm) {
+      npfForm.style.display = "block";
+      containerRef.current.appendChild(npfForm);
+    }
 
     document.body.style.overflow = "hidden";
 

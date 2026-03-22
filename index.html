@@ -16,6 +16,22 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- NoPaperForms widget - loaded as static HTML for production reliability -->
+    <div id="npf-hero-form" style="display:none;">
+      <div class="npf_wgts" data-height="550px" data-w="2813f4ab5a613222cb968f1cee3b6603"></div>
+    </div>
+    <div id="npf-popup-form" style="display:none;">
+      <div class="npf_wgts" data-height="550px" data-w="2813f4ab5a613222cb968f1cee3b6603"></div>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript">
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://widgets.in6.nopaperforms.com/emwgts.js";
+      document.body.appendChild(s);
+    </script>
   </body>
 </html>

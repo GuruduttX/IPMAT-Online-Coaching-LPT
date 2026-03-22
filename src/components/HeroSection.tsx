@@ -1,35 +1,18 @@
 import { Phone } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-const NpfWidget = ({ height = "550px" }: { height?: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const loaded = useRef(false);
+const HeroSection = () => {
+  const formContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || loaded.current) return;
-    loaded.current = true;
+    // Move the statically-loaded NPF form from index.html into this component
+    const npfForm = document.getElementById("npf-hero-form");
+    if (npfForm && formContainerRef.current) {
+      npfForm.style.display = "block";
+      formContainerRef.current.appendChild(npfForm);
+    }
+  }, []);
 
-    // Step 1: Insert the widget div into the DOM
-    const widgetDiv = document.createElement("div");
-    widgetDiv.className = "npf_wgts";
-    widgetDiv.setAttribute("data-height", height);
-    widgetDiv.setAttribute("data-w", "2813f4ab5a613222cb968f1cee3b6603");
-    containerRef.current.appendChild(widgetDiv);
-
-    // Step 2: Wait a tick for DOM to paint, then load the NPF script into document.body
-    setTimeout(() => {
-      const s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = "https://widgets.in6.nopaperforms.com/emwgts.js?" + Date.now();
-      document.body.appendChild(s);
-    }, 100);
-  }, [height]);
-
-  return <div ref={containerRef} className="npf-styled" />;
-};
-
-const HeroSection = () => {
   return (
     <section id="hero" className="relative overflow-hidden bg-[#192376]">
       {/* Urgency Strip */}
@@ -115,7 +98,7 @@ const HeroSection = () => {
             <div className="rounded-xl bg-white p-5">
               <h3 className="text-[17px] font-bold text-[#36344D]">Limited Slots!</h3>
               <p className="mb-3 text-[12px] text-[#727586]">Fill the form to register or request more details.</p>
-              <NpfWidget />
+              <div ref={formContainerRef} className="npf-styled" />
             </div>
           </div>
         </div>
