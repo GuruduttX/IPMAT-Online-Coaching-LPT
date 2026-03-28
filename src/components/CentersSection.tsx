@@ -5,22 +5,26 @@ const centers = [
   {
     name: "South Delhi",
     address: "Second Floor, 14, near Vadilal Hangout, Kaushaiya Park, Hauz Khas, New Delhi, Delhi 110016",
-    phone: "+91-8750581505",
+    phone: "+91-9217577446",
+    mapUrl: "https://share.google/CUjDORk4Qr8Ql6ldo",
   },
   {
     name: "Gurugram",
     address: "M-35, Second Floor, above HDFC Bank, Block M, Old DLF Colony, Sector 14, Gurugram, Haryana 122007",
-    phone: "+91-8750581505",
+    phone: "+91-9217577448",
+    mapUrl: "https://share.google/pFc7tZ6wbwfal4JNG",
   },
   {
     name: "North Delhi",
     address: "Metro Gate No. 1, upstairs Bank of Baroda, 73-75, Ring Road, Mall Road, GTB Nagar, New Delhi, Delhi 110033",
-    phone: "+91-8750581505",
+    phone: "+91-9217577445",
+    mapUrl: "https://share.google/HDrAGmo4vPeISJGET",
   },
   {
     name: "Noida",
     address: "Ground Floor, Sandesh Tower, C-56/31, C Block, Phase 2, Sector 62, Noida, Uttar Pradesh 201309",
-    phone: "+91-8750581505",
+    phone: "+91-9217577449",
+    mapUrl: "https://share.google/SDz2XmdpiUzCQyND1",
   },
 ];
 
@@ -60,7 +64,7 @@ const CentersSection = () => {
                 {c.phone}
               </a>
               <a
-                href={`https://www.google.com/maps/search/${encodeURIComponent(c.name + " LPT " + c.address)}`}
+                href={c.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 text-[13px] font-medium text-[#727586] hover:text-[#36344D] hover:underline"

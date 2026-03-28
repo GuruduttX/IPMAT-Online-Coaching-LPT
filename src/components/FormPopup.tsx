@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
-const NPF_WIDGET_KEY = "2813f4ab5a613222cb968f1cee3b6603";
+const NPF_WIDGET_KEY = "1b77a6fea5e0e0e10b6d10b8d9637367";
 
 const FormPopup = () => {
   const [show, setShow] = useState(false);
@@ -57,7 +57,7 @@ const FormPopup = () => {
             <iframe
               src={iframeSrc}
               width="100%"
-              height="550px"
+              height="420px"
               frameBorder={0}
               sandbox="allow-top-navigation allow-scripts allow-same-origin allow-downloads allow-forms allow-popups"
               style={{ border: "none" }}

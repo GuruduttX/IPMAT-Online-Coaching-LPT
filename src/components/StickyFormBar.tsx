@@ -19,7 +19,7 @@ const StickyFormBar = () => {
       {/* Desktop floating buttons — right side */}
       <div className="fixed right-5 bottom-6 z-50 hidden flex-col gap-3 lg:flex">
         <a
-          href="https://wa.me/918750581505?text=Hi%2C%20I%20want%20to%20know%20about%20IPMAT%20coaching"
+          href="https://wa.me/919217577446?text=Hi%2C%20I%20want%20to%20know%20about%20IPMAT%20coaching"
           target="_blank"
           rel="noopener noreferrer"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl"
@@ -28,7 +28,7 @@ const StickyFormBar = () => {
           <MessageCircle className="h-6 w-6" />
         </a>
         <a
-          href="tel:+918750581505"
+          href="tel:+919217577446"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-[#192376] text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl"
           aria-label="Call us"
         >
@@ -46,7 +46,7 @@ const StickyFormBar = () => {
             Register Now — Free
           </a>
           <a
-            href="https://wa.me/918750581505?text=Hi%2C%20I%20want%20to%20know%20about%20IPMAT%20coaching"
+            href="https://wa.me/919217577446?text=Hi%2C%20I%20want%20to%20know%20about%20IPMAT%20coaching"
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-lg bg-[#25D366] text-white transition-all active:scale-95"
@@ -55,7 +55,7 @@ const StickyFormBar = () => {
             <MessageCircle className="h-5 w-5" />
           </a>
           <a
-            href="tel:+918750581505"
+            href="tel:+919217577446"
             className="flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-lg bg-[#6936F5] text-white transition-all active:scale-95"
             aria-label="Call"
           >

@@ -1,8 +1,8 @@
 import { Phone } from "lucide-react";
 
-const NPF_WIDGET_KEY = "2813f4ab5a613222cb968f1cee3b6603";
+const NPF_WIDGET_KEY = "1b77a6fea5e0e0e10b6d10b8d9637367";
 
-const NpfIframe = ({ height = "550px" }: { height?: string }) => {
+const NpfIframe = ({ height = "420px" }: { height?: string }) => {
   // Build the same URL the NPF script would create, but as a direct iframe
   const iframeSrc = `https://widgets.in6.nopaperforms.com/register?w=${NPF_WIDGET_KEY}&cu=${encodeURIComponent(window.location.href)}`;
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 gap-8 pb-10 lg:grid-cols-[1fr_400px] lg:gap-12 lg:pb-14">
+        <div className="grid grid-cols-1 gap-8 pb-14 lg:grid-cols-[1fr_400px] lg:gap-12 lg:pb-20">
           {/* LEFT — Text Content */}
           <div className="flex flex-col justify-center">
             <p className="text-[15px] font-medium uppercase tracking-widest text-white/60">
@@ -91,11 +91,11 @@ const HeroSection = () => {
                 Book Free Counselling
               </a>
               <a
-                href="tel:+918750581505"
+                href="tel:+919217577446"
                 className="inline-flex items-center gap-2 rounded-lg border border-white/25 px-6 py-3 text-[14px] font-medium text-white transition-all hover:border-white/40 hover:bg-white/5"
               >
                 <Phone className="h-4 w-4" />
-                +91-8750581505
+                +91-9217577446
               </a>
             </div>
           </div>
@@ -105,7 +105,7 @@ const HeroSection = () => {
             <div className="rounded-xl bg-white p-5 overflow-hidden">
               <h3 className="text-[17px] font-bold text-[#36344D]">Limited Slots!</h3>
               <p className="mb-3 text-[12px] text-[#727586]">Fill the form to register or request more details.</p>
-              <NpfIframe height="550px" />
+              <NpfIframe height="420px" />
             </div>
           </div>
         </div>
